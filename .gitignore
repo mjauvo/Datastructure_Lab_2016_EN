@@ -1,0 +1,8 @@
+/app/build/
+/app/nbproject/
+/app/nbproject/private/
+/app/build.xml
+/app/manifest.mf
+/app/dist/
+/docs/images/*.*
+/app/Datastructure_lab_2016/nbproject/private/
