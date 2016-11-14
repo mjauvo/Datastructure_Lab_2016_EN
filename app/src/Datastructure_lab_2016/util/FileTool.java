@@ -5,7 +5,7 @@ import java.io.*;
 /**
  * A utility class for handling files.
  *
- * @author Markus
+ * @author Markus J. Auvo 2016
  */
 public class FileTool
 {
