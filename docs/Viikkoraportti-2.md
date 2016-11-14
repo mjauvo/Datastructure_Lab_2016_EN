@@ -5,8 +5,9 @@
 * Viikolla toteutettiin DES-salausalgoritmi Javan omilla Crypto- ja Security-pakkauksista löytyvillä työkaluilla. Fokus oli Cipher-luokan käytössä.
   * Salaus- ja purkumetodit toteutettu.
   * Yksikkötestit toteutettu.
-* Luotiin työkaluluokka 'FileTool' tiedostonkäsittelyä varten.
+* Luotiin työkaluluokka 'FileTool' tiedostonkäsittelyä varten ja luokalle testiluokka 'FileToolTest'.
 * Luotiin informatiivinen apuluokka 'Message' lähinnä tukemaan ohjelman suoritusta.
+* Luotiin ohjelmalle pääluokka 'Main' ja ohjelmalle päätestiluokka 'MainTest', jonka tarkoituksena on suorittaa kaikki eri testit yhdellä kertaa.
 
 ## Ohjelman edistyminen
 
