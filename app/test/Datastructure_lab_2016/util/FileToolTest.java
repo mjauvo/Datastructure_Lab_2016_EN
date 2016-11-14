@@ -7,7 +7,7 @@ import java.io.*;
 /**
  * A test class for FileTool class.
  *
- * @author Markus
+ * @author Markus J. Auvo 2016
  */
 public class FileToolTest
 {
