@@ -86,6 +86,12 @@ public class FileToolTest
 
     // TESTS
 
+    /**
+     * Executes class instance tests.
+     * 
+     * @throws Exception
+     */
+
     @Test
     public void classInstanceTests() throws Exception {
         System.out.print("FileToolTest...executing instance variable tests...");
@@ -95,6 +101,11 @@ public class FileToolTest
         System.out.println("OK");
     }
 
+    /**
+     * Executes primitive variable tests.
+     *
+     * @throws Exception
+     */
     @Test
     public void primitiveVariableTests() throws Exception {
         System.out.print("FileToolTest...executing primitive variable tests...");
