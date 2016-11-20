@@ -13,10 +13,15 @@ import Datastructure_lab_2016.util.*;
 public class MainTest {
     private static final JavaDESTest JDT = new JavaDESTest();
     private static final FileToolTest FTT = new FileToolTest();
+    private static final ArrayToolTest ATT = new ArrayToolTest();
+    private static final ByteBitToolTest BBTT = new ByteBitToolTest();
 
     public static void main(String[] args) throws Exception {
         JDT.classInstantiationTests();
         FTT.classInstanceTests();
         FTT.primitiveVariableTests();
+        ATT.integerArrayTests();
+        ATT.integerArrayElementTests();
+        BBTT.ByteBitTests();
     }
 }
