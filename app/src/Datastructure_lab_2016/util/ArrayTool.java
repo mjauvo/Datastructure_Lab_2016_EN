@@ -142,11 +142,13 @@ public class ArrayTool
          2,  1, 14,  7,  4, 10,  8, 13, 15, 12,  9,  0,  3,  5,  6, 11
     };
 
-    // Permutation (P) table.
-    //
-    // The Feistel function concludes by applying this 32-bit permutation
-    // to the result of the S-box substitution, in order to spread the
-    // output bits across 6 different S-boxes in the next round.
+    /**
+     * Permutation (P) table.
+     *
+     * The Feistel function concludes by applying this 32-bit permutation
+     * to the result of the S-box substitution, in order to spread the
+     * output bits across 6 different S-boxes in the next round.
+     */
     private final int[] P = {
         16,  7, 20, 21,
         29, 12, 28, 17,
@@ -157,11 +159,13 @@ public class ArrayTool
         19, 13, 30,  6,
         22, 11,  4, 25
     };
-	
-    // Final Permutation (FP), also Inverse Permutation table.
-    //
-    // The final result is permuted by this permutation to
-    // generate the final ciphertext block.
+
+    /**
+     * Final Permutation (FP), also Inverse Permutation table.
+     * 
+     * The final result is permuted by this permutation to
+     * generate the final ciphertext block.
+     */
     private final int[] FP = {
         40, 8, 48, 16, 56, 24, 64, 32,
         39, 7, 47, 15, 55, 23, 63, 31,
