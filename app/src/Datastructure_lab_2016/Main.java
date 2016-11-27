@@ -28,19 +28,35 @@ public class Main
      */
     public static void main(String[] args) throws Exception {
 
-        String ORIGINAL_FILE = "data/Picture3.ORIGINAL.jpg";
-        String ENCRYPT_FILE  = "data/Picture3.JavaWay.ENCRYPTED.jpg";
-        String DECRYPT_FILE  = "data/Picture3.JavaWay.DECRYPTED.jpg";
+        String FILE_NAME = "Picture4";
+
+        int ENCRYPTION = 0;
+        int DECRYPTION = 1;
+
+        String ORIGINAL_FILE = "data/" + FILE_NAME + ".ORIGINAL.jpg";
+        String ENCRYPT_JAVA_FILE  = "data/" + FILE_NAME + ".ENCRYPTED.JavaWay.jpg";
+        String DECRYPT_JAVA_FILE  = "data/" + FILE_NAME + ".DECRYPTED.JavaWay.jpg";
+        String ENCRYPT_MY_FILE  = "data/" + FILE_NAME + ".ENCRYPTED.MyWay.jpg";
+        String DECRYPT_MY_FILE  = "data/" + FILE_NAME + ".DECRYPTED.MyWay.jpg";
 
         /**
          * JavaDES
          */
 
-        System.out.println();
-        System.out.println("## JavaDES ##");
-        JavaDES theJavaWay = new JavaDES();
-        theJavaWay.encryptImage(ORIGINAL_FILE, ENCRYPT_FILE);
-        theJavaWay.decryptImage(ENCRYPT_FILE, DECRYPT_FILE);
+        //System.out.println();
+        //System.out.println("## JavaDES: " + FILE_NAME + " ##");
+        //JavaDES JavaWay = new JavaDES();
+        //JavaWay.encryptImage(ORIGINAL_FILE, ENCRYPT_JAVA_FILE);
+        //JavaWay.decryptImage(ENCRYPT_JAVA_FILE, DECRYPT_JAVA_FILE);
 
+        /**
+         * MyDES
+         */
+
+        System.out.println();
+        System.out.println("## MyDES: " + FILE_NAME + " ##");
+        MyDES MyWay = new MyDES();
+        MyWay.execute(ENCRYPTION, ORIGINAL_FILE, ENCRYPT_MY_FILE);
+        MyWay.execute(DECRYPTION, ENCRYPT_MY_FILE, DECRYPT_MY_FILE);
     }
 }
