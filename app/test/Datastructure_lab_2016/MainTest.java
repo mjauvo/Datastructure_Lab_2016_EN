@@ -15,6 +15,7 @@ public class MainTest {
     private static final FileToolTest FTT = new FileToolTest();
     private static final ArrayToolTest ATT = new ArrayToolTest();
     private static final ByteBitToolTest BBTT = new ByteBitToolTest();
+    private static final KeyGenTest KGT = new KeyGenTest();
 
     public static void main(String[] args) throws Exception {
         JDT.classInstantiationTests();
@@ -23,5 +24,6 @@ public class MainTest {
         ATT.integerArrayTests();
         ATT.integerArrayElementTests();
         BBTT.ByteBitTests();
+        KGT.keyTests();
     }
 }
