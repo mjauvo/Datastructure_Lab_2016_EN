@@ -7,7 +7,8 @@
   * Luotu työkaluluokka 'KeyGen' 64-bittisen salausavaimen luontia varten.
   * Luotu yksikkötestiluokka 'KeyGenTest' luokalle 'KeyGen'.
   * Luotu luokka 'MyDES' omalle toteutukselle DES-algoritmista.
-  * Kirjoitettu toteutusdokumenttia.
+  * Päivitetty toteutusdokumenttia.
+  * Aloitettu testausdokumentti.
 
 ## Ohjelman edistyminen
 
@@ -24,7 +25,7 @@
 ## Seuraavat työt
 
 * Luodaan ohjelmalle yksinkertainen käyttöliittymä
-* Suoritetaan suorituskykytestejä ja kirjoitetaan testausdokumentti
+* Suoritetaan suorituskykytestejä ja kirjoitetaan testausdokumentti valmiiksi.
 * Kirjoitetaan käyttöohjedokumentti
 
 ## Viikolla käytetty aika
