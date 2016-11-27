@@ -25,6 +25,7 @@
 ## Seuraavat työt
 
 * Luodaan ohjelmalle yksinkertainen käyttöliittymä
+* Kirjoitetaan toteutusdokumentti valmiiksi
 * Suoritetaan suorituskykytestejä ja kirjoitetaan testausdokumentti valmiiksi.
 * Kirjoitetaan käyttöohjedokumentti
 
