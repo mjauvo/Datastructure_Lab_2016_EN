@@ -28,7 +28,7 @@ public class Main
      */
     public static void main(String[] args) throws Exception {
 
-        String FILE_NAME = "Picture4";
+        String FILE_NAME = "Picture3";
 
         int ENCRYPTION = 0;
         int DECRYPTION = 1;
