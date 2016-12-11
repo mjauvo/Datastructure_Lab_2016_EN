@@ -10,7 +10,8 @@ import Datastructure_lab_2016.util.*;
  *
  * @author Markus J. Auvo 2016
  */
-public class MainTest {
+public class MainTest
+{
     private static final JavaDESTest JDT = new JavaDESTest();
     private static final FileToolTest FTT = new FileToolTest();
     private static final ArrayToolTest ATT = new ArrayToolTest();
