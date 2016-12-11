@@ -46,9 +46,11 @@ public class GUI extends JFrame
     private JMenuBar menuBar;
     private JMenuItem itemOpen;
     private JMenuItem itemExit;
+    private JMenuItem itemInstructions;
     private JMenuItem itemAbout;
     private final ImageIcon iconOpen = new ImageIcon("resources/icon-open-file_16x16.png");
     private final ImageIcon iconExit = new ImageIcon("resources/icon_exit_16x16.png");
+    private final ImageIcon iconInstruction = new ImageIcon("resources/icon_instruction_16x16.png");
     private final ImageIcon iconAbout = new ImageIcon("resources/icon_about_16x16.png");
 
     private final JFileChooser FILE_CHOOSER;
@@ -139,6 +141,23 @@ public class GUI extends JFrame
     }
 
     /**
+     * Displays an 'Instructions' dialog box when the user
+     * chooses 'Help -> Instructions' from the menu bar.
+     */
+    public void showInstructions() {
+        String msg = "<html>";
+        msg += "<span style='color: #009600'>";
+        msg += "Instructions";
+        msg += "</span><br>";
+        msg += "<p>Please name your source file according to following convention:<br>";
+        msg += "&lt;<i>name</i>&gt;.ORIGINAL.jpg</p>";
+        msg += "<br>";
+        msg += "<p>Then select a DES method and execute encryption by pressing GO!";
+        msg += "</html>";
+        showMessageDialog(null, new JLabel(msg), "About", INFORMATION_MESSAGE);
+    }
+
+    /**
      * Displays an 'About' dialog box when the user
      * chooses 'Help -> About' from the menu bar.
      */
@@ -149,8 +168,7 @@ public class GUI extends JFrame
         msg += "</center></span><br>";
         msg += "<p>Markus J. Auvo.</p>";
         msg += "</html>";
-
-        JOptionPane.showMessageDialog(null, new JLabel(msg), "About", INFORMATION_MESSAGE);
+        showMessageDialog(null, new JLabel(msg), "About", INFORMATION_MESSAGE);
     }
 
     /**
@@ -177,6 +195,17 @@ public class GUI extends JFrame
 
     /**
      * Creates and initialises an individual
+     * 'Instructions' menu item for the menu bar.
+     */
+    public void buildItemInstructions() {
+        itemInstructions = new JMenuItem("Instructions", iconInstruction);
+        itemInstructions.addActionListener((ActionEvent event) -> {
+            showInstructions();
+        });
+    }
+
+    /**
+     * Creates and initialises an individual
      * 'About' menu item for the menu bar.
      */
     public void buildItemAbout() {
@@ -192,6 +221,7 @@ public class GUI extends JFrame
     public void buildMenuItems() {
         buildItemOpen();
         buildItemExit();
+        buildItemInstructions();
         buildItemAbout();
     }
 
@@ -208,6 +238,7 @@ public class GUI extends JFrame
         // Add items to the menus
         menuFile.add(itemOpen);
         menuFile.add(itemExit);
+        menuHelp.add(itemInstructions);
         menuHelp.add(itemAbout);
     }
 
