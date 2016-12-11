@@ -2,11 +2,12 @@
 
 ## Viikolla tehdyt työt
 
-* Luotu ohjelmalle käyttöliittymäluokka GUI
+* Luotu ohjelmalle käyttöliittymäluokka GUI.
 * Luotu työkaluluokka 'StringTool' tiedostonimien generointia varten.
-* Kirjoitettu toteutusdokumentti valmiiksi
-* Kirjoitettu testausdokumentti valmiiksi
-* Kirjoitettu käyttöohjedokumentti valmiiksi
+* Luotu yksikkötestiluokka 'StringToolTest' luokalle 'StringTool'.
+* Kirjoitettu toteutusdokumentti valmiiksi.
+* Kirjoitettu testausdokumentti valmiiksi.
+* Kirjoitettu käyttöohjedokumentti valmiiksi.
 
 ## Ohjelman edistyminen
 
