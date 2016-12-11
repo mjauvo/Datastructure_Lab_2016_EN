@@ -2,7 +2,7 @@ package Datastructure_lab_2016.util;
 
 /**
  * A utility class for handling strings.
- *
+ * <p>
  * @author Markus J. Auvo 2016
  */
 public class StringTool

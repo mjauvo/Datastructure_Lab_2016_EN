@@ -2,14 +2,14 @@ package Datastructure_lab_2016.util;
 
 /**
  * A utility class for handling DES related arrays.
- * 
+ * <p>
  * @author Markus J. Auvo 2016
  */
 public class ArrayTool
 {
     /**
      * Initial Permutation (IP) table.
-     *
+     * <p>
      * The message block is permuted by this permutation
      * at the beginning of the algorithm.
      */
@@ -26,7 +26,7 @@ public class ArrayTool
 
     /**
      * Permuted Choice 1 (PC1) table.
-     *
+     * <p>
      * The supplied 64-bit key is permuted according
      * to this table into a 56-bit key. (This is why
      * DES is only a 56-bit algorithm, even though you
@@ -43,11 +43,11 @@ public class ArrayTool
     };
 
     /**
-     * Permuted Choice 2 (PC2) table
-     *
+     * Permuted Choice 2 (PC2) table.
+     * <p>
      * The subkey generation process applies this permutation
-     * to transform its running 56-bit keystuff value into the
-     * final set of 16 48-bit subkeys.
+     * to transform its running 56-bit key value into the
+     * final set of 16 subkeys of 48-bits.
      */
     private final int[] PC2 = {
         14, 17, 11, 24,  1,  5,
@@ -61,8 +61,8 @@ public class ArrayTool
     };
 	
     /**
-     * Subkey bit shifts that are to be done on each round.
-     *
+     * Subkey bit shifts which are done on each round.
+     * <p>
      * Part of the subkey generation process involves shifting
      * certain bit-sections of the key stuff by either one or
      * two bits to the left. This table specifies how many bits
@@ -74,7 +74,7 @@ public class ArrayTool
 	
     /**
      * Expansion permutation (P-box)
-     *
+     * <p>
      * The Feistel function begins by applying this permutation to its
      * 32-bit input half-block to create an "expanded" 48-bit value.
      */
@@ -92,7 +92,7 @@ public class ArrayTool
     /**
      * Substitution (S) boxes which form the very core of the security
      * of DES algorithm.
-     *
+     * <p>
      * A crucial step in the Feistel function is to perform bit
      * substitutions according to this table.  A 48-bit value is
      * split into 6-bit sections, and each section is permuted into
@@ -144,7 +144,7 @@ public class ArrayTool
 
     /**
      * Permutation (P) table.
-     *
+     * <p>
      * The Feistel function concludes by applying this 32-bit permutation
      * to the result of the S-box substitution, in order to spread the
      * output bits across 6 different S-boxes in the next round.
@@ -162,7 +162,7 @@ public class ArrayTool
 
     /**
      * Final Permutation (FP), also Inverse Permutation table.
-     * 
+     * <p>
      * The final result is permuted by this permutation to
      * generate the final ciphertext block.
      */
@@ -178,72 +178,72 @@ public class ArrayTool
     };
 
     /**
-     * Returns the Initial Permutation table
-     * 
-     * @return The Initial Permutation table
+     * Returns the <i>Initial Permutation</i> table.
+     * <p>
+     * @return The <i>Initial Permutation</i> table
      */
     public int[] getIP() {
         return IP;
     }
 
     /**
-     * Returns the Permuted Choice 1 table
+     * Returns the <i>Permuted Choice 1</i> table.
      * 
-     * @return The Permuted Choice 1 table
+     * @return The <i>Permuted Choice 1</i> table
      */
     public int[] getPC1() {
         return PC1;
     }
 
     /**
-     * Returns the Permuted Choice 2 table
+     * Returns the <i>Permuted Choice 2</i> table.
      * 
-     * @return The Permuted Choice 2 table
+     * @return The <i>Permuted Choice 2</i> table
      */
     public int[] getPC2() {
         return PC2;
     }
 
     /**
-     * Returns the rotations that are to be done on each round
+     * Returns the bit shift rotations which are done on each round.
      * 
-     * @return The number of rotations
+     * @return The number of bit shift rotations
      */
     public int[] getBitShifts() {
         return BIT_SHIFTS;
     }
 
     /**
-     * Returns the Expansion table
+     * Returns the <i>Expansion</i> table.
      * 
-     * @return The Expansion table
+     * @return The <i>Expansion</i> table
      */
     public int[] getExpansion() {
         return EXPANSION;
     }
 
     /**
-     * Returns the Substitution boxes
+     * Returns the <i>Substitution</i> boxes
      *
-     * @return The Substitution boxes
+     * @return The <i>Substitution</i> boxes
      */
     public int[] getSubstitution() {
         return S;
     }
 
     /**
-     * Returns the Permutation table
+     * Returns the <i>Permutation</i> table
      * 
-     * @return The Permutation table
+     * @return The <i>Permutation</i> table
      */
     public int[] getP() {
         return P;
     }
 
     /**
-     * Returns the Final Permutation table
+     * Returns the <i>Final Permutation</i> table
      * 
-     * @return The Final Permutation table
+     * @return The <i>Final Permutation</i> table
      */
     public int[] getFP() {
         return FP;

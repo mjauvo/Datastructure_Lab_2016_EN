@@ -2,7 +2,7 @@ package Datastructure_lab_2016.util;
 
 /**
  * A utility class for displaying messages.
- * 
+ * <p>
  * @author Markus J. Auvo 2016
  */
 public class MessageTool
@@ -13,39 +13,40 @@ public class MessageTool
      * @param i The message number.
      */
     public void display(int i) {
+        String message = "";
+
         switch(i) {
 
-            default:
+            // PROCEDURE MESSAGES
+            case 11:
+                message = "\nENCRYPTION PROCEDURE STARTED\n";
+                break;
+            case 12:
+                message = "ENCRYPTION PROCEDURE COMPLETE\n";
+                break;
+            case 21:
+                message = "\nDECRYPTION PROCEDURE STARTED\n";
+                break;
+            case 22:
+                message = "DECRYPTION PROCEDURE COMPLETE\n";
                 break;
 
-            // PROCEDURE MESSAGES
-
-            case 11:
-                System.out.println("\nENCRYPTION PROCEDURE STARTED"); break;
-            case 12:
-                System.out.println("ENCRYPTION PROCEDURE COMPLETE\n"); break;
-            case 21:
-                System.out.println("\nDECRYPTION PROCEDURE STARTED"); break;
-            case 22:
-                System.out.println("DECRYPTION PROCEDURE COMPLETE\n"); break;
-
             // TASK MESSAGES
-
             case 41:
-                System.out.print("\t--Reading from plain image file..."); break;
+                message = "\t--Reading from file...";
+                break;
             case 42:
-                System.out.print("\t--Writing to encrypted image file..."); break;
-            case 61:
-                System.out.print("\t--Reading from encrypted image file..."); break;
-            case 62:
-                System.out.print("\t--Writing to decrypted image file..."); break;
+                message = "\t--Writing to file...";
+                break;
 
             // COMPLETION MESSAGES
-
             case 89:
-                System.out.println("FAILED"); break;
+                message = "FAILED\n";
+                break;
             case 99:
-                System.out.println("OK"); break;
+                message = "OK\n";
+                break;
         }
+        System.out.print(message);
     }
 }

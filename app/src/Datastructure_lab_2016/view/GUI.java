@@ -11,18 +11,16 @@ import java.awt.*;
 import java.io.*;
 
 /**
- * Application window aka. User Interface
- * 
+ * The application window aka. User Interface
+ * <p>
  * @author Markus J. Auvo 2016
  */
 public class GUI extends JFrame
 {
     // Instance variables
-
     StringTool ST;
 
     // Application properties
-
     private final int APP_FIXED_WIDTH = 320;
     private final int APP_FIXED_HEIGHT = 165;
     private final int ENC = 0;
@@ -40,7 +38,6 @@ public class GUI extends JFrame
     private String decFilePath;
 
     // Menu bar components
-
     private JMenu menuFile;
     private JMenu menuHelp;
     private JMenuBar menuBar;
@@ -54,7 +51,6 @@ public class GUI extends JFrame
     private final ImageIcon iconAbout = new ImageIcon("resources/icon_about_16x16.png");
 
     // Application area components
-
     private JLabel fileLabel;
     private JLabel methodLabel;
     private JTextField fileName;
@@ -63,7 +59,6 @@ public class GUI extends JFrame
     private final ImageIcon iconExecute = new ImageIcon("resources/icon_start_16x16.png");
 
     // File functionality
-
     private final JFileChooser FILE_CHOOSER;
     private final FileFilter JPG_FILTER;
 
@@ -134,7 +129,7 @@ public class GUI extends JFrame
     /**
      * Displays a information dialog box with a given message.
      * 
-     * @param msg Information message to be displayed
+     * @param msg Success message to be displayed
      */
     public void showSuccess(String msg) {
         JLabel success = new JLabel(msg);
@@ -228,7 +223,7 @@ public class GUI extends JFrame
     }
 
     /**
-     * Creates and initialises individual menus for menu bar
+     * Creates and initialises individual menus for menu bar.
      */
     public void buildMenus() {
         buildMenuItems();
@@ -368,7 +363,7 @@ public class GUI extends JFrame
     }
 
     /**
-     * Creates and initialises the application area
+     * Creates and initialises the application area.
      */
     public void buildAppArea() {
         buildLabelSelectedFile();
@@ -427,7 +422,7 @@ public class GUI extends JFrame
     }
 
     /**
-     * Creates and initialises the application window
+     * Creates and initialises the application window.
      * 
      * @param appTitle The name of the application in the title bar
      */

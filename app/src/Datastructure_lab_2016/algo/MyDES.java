@@ -5,17 +5,16 @@ import java.util.Arrays;
 
 /**
  * A class demonstrating DES algorithm using student's own implementation.
- * 
+ * <p>
  * Implementation uses a block size of 64 bits (8 bytes). Therefore, if
  * necessary, the original message is padded with random characters to
  * achieve a message length divisible with 8.
- *
+ * <p>
  * @author Markus J. Auvo, 2016
  */
 public class MyDES
 {
     // INSTANCE VARIABLES
-
     private final ArrayTool AT;
     private final ByteBitTool BBT;
     private final KeyGen KG;
@@ -23,19 +22,16 @@ public class MyDES
     private final String CIPHER_KEY;
 
     // PRIMITIVE VARIABLES
-
     private int numOfBlocks;
     private byte[] byteBlock;
     private long startTime;
     private long endTime;
 
     // MESSAGE CONSTANTS
-
     private final int ENCRYPTION_START      =   11;
     private final int ENCRYPTION_COMPLETE   =   12;
     private final int DECRYPTION_START      =   21;
     private final int DECRYPTION_COMPLETE   =   22;
-    
     private final int READ_FROM_FILE        =   41;
     private final int WRITE_TO_FILE         =   42;
     private final int FAILURE               =   89;
@@ -73,8 +69,8 @@ public class MyDES
     } 
 
     /**
-     * Executes an encryption or decryption on a given file
-     * and stores the resulting information into a given file.
+     * Executes an encryption or decryption on a given input image file
+     * and stores the resulting information into a given output image file.
      * 
      * @param inputFile The file containing the input data
      * @param outputFile The file containing the output data
@@ -117,6 +113,7 @@ public class MyDES
             }
             int start = (i-1) * blockSize;
             int end = start + blockSize;
+            // Block about to be processed
             byteBlock = Arrays.copyOfRange(inputBytes, start, end);
 
             // Operation: Initial Permutation
@@ -128,7 +125,7 @@ public class MyDES
             byte[][] roundSubKeys = KG.getRoundSubKeys(CIPHER_KEY);
             int numOfRoundSubKeys = roundSubKeys.length;
 
-            // The real magic is in the encryption/decryption 16 rounds which
+            // The real magic is in the 16 encryption/decryption rounds which
             // are performed on each data block. The ONLY difference between
             // encryption and decryption is the order in which the process
             // round subkeys are used.
@@ -142,6 +139,7 @@ public class MyDES
                 // Operation: Expansion
                 rightBlock = BBT.permutateBits(rightBlock, AT.getExpansion());
 
+                // Operation: XOR
                 switch (OPERATION) {
                     // Encrypt
                     case 0:
@@ -167,6 +165,7 @@ public class MyDES
                 leftBlock = tempRightBlock;
             }
 
+            // Operation: Concatenation
             byte[] blocksLeftRight = BBT.concatenate(rightBlock, InitBlockSize/2, leftBlock, InitBlockSize/2);
 
             // Operation: Final Premutation

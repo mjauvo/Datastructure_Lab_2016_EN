@@ -2,13 +2,12 @@ package Datastructure_lab_2016.util;
 
 /**
  * A utility class for generating keys for DES algorithm
- *
+ * <p>
  * @author Markus J. Auvo, 2016
  */
 public class KeyGen
 {
-    // GENERAL INSTANCE VARIABLES
-
+    // INSTANCE VARIABLES
     private final ArrayTool AT;
     private final ByteBitTool BBT;
 
@@ -21,7 +20,7 @@ public class KeyGen
     }
 
     /**
-     * Returns a randomly generated 8-byte key
+     * Returns a randomly generated 8-byte key.
      * 
      * @return A new 8-byte key.
      */
@@ -40,10 +39,10 @@ public class KeyGen
     }
 
     /**
-     * Generates and returns an array of 48-bit (6 bytes) subkeys
-     * for encryption/decryption process. 16 subkeys are needed.
+     * Generates and returns an array of 16 subkeys of 48-bits
+     * (6 bytes) for encryption/decryption process. are needed.
      * 
-     * @param originalKey
+     * @param originalKey The original 64-bit key
      * @return The array of 48-bit sub keys.
      * @throws java.lang.Exception 
      */

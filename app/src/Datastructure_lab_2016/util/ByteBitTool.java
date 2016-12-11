@@ -4,14 +4,16 @@ import java.io.*;
 
 /**
  * A utility class for handling bytes and bits.
- *
+ * <p>
  * @author Markus J. Auvo 2016
  */
 public class ByteBitTool
 {
+    // Instance variables
     private final FileTool FT;
     private final ArrayTool AT;
 
+    // Pimitive variables
     private int length;
 
     /**
@@ -25,7 +27,7 @@ public class ByteBitTool
     /**
      * Returns the cipher key as a byte array.
      * 
-     * @param key
+     * @param key The original key
      * @return The byte array
      * @throws java.lang.Exception
      */
@@ -37,8 +39,8 @@ public class ByteBitTool
      * Retrieves the contents of a file into a byte array
      * (with potentially necessary padding).
      * 
-     * @param fileName
-     * @return Byte array representation of the image.
+     * @param fileName The name of the file to be read from.
+     * @return Byte array representation of the file contents.
      * @throws java.lang.Exception 
      */
     public byte[] getFileBytes(String fileName) throws Exception {
@@ -108,17 +110,18 @@ public class ByteBitTool
      * Pads an byte array with extra characters.
      * 
      * @param dataBytes The byte array to be padded.
-     * @param start The first empty element where padding starts.
-     * @param length The length of the padding.
+     * @param bytesRead The numbers of non-empty elements
+     * @param paddingLength The length of the padding.
      * @return 
      * @throws java.lang.Exception
      */
-    public byte[] getPaddedBytes(byte[] dataBytes, int start, int length) throws Exception {
+    public byte[] getPaddedBytes(byte[] dataBytes, int bytesRead, int paddingLength) throws Exception {
+        int paddingStart = bytesRead;
         int arrayLength = dataBytes.length;
 
-        if (length > 0) {
-            for (int i = 0; i < length; i++) {
-                dataBytes[start+i] = (byte) 0;
+        if (paddingLength > 0) {
+            for (int i = 0; i < paddingLength; i++) {
+                dataBytes[paddingStart+i] = (byte) 0;
             }
         }
         return dataBytes;
@@ -127,8 +130,8 @@ public class ByteBitTool
     /**
      * Performs a left shift operation on binary bits
      * 
-     * @param input
-     * @param length
+     * @param input The byte array with movable bits.
+     * @param length The length of the bit movement.
      * @param step
      * @return BitSet after shift operation
      * @throws java.lang.Exception
@@ -146,10 +149,10 @@ public class ByteBitTool
     /**
      * "Concatenates" two byte arrays into one.
      * 
-     * @param A
-     * @param lengthA
-     * @param B
-     * @param lengthB
+     * @param A The byte array A to be concatenated.
+     * @param lengthA The bit length of A.
+     * @param B The byte array B to be concatenated.
+     * @param lengthB The bit length of B.
      * @return  The concatenated vector of bits.
      * @throws java.lang.Exception
      */
@@ -171,11 +174,14 @@ public class ByteBitTool
     }
 
     /**
-     * @param dataBytes
-     * @param position
+     * Retrieves a bit from a byte array and from the given position.
+     * 
+     * @param dataBytes The byte array
+     * @param position The bit position
      * @return 
+     * @throws NumberFormatException
      */
-    public int getBit(byte[] dataBytes, int position) {
+    public int getBit(byte[] dataBytes, int position) throws NumberFormatException {
         int positionByte = position/8; 
         int positionBit = position%8;
         byte selectedByte = dataBytes[positionByte];
@@ -184,8 +190,10 @@ public class ByteBitTool
     }
 
     /**
-     * @param dataBytes
-     * @param position
+     * Sets a bit in a byte array and in the given position.
+     * 
+     * @param dataBytes The byte array
+     * @param position The bit position
      * @param value
      */
     public void setBit(byte[] dataBytes, int position, int value) {
@@ -200,9 +208,9 @@ public class ByteBitTool
     /**
      * Selects a data portion from a byte array.
      * 
-     * @param dataBytes
-     * @param position
-     * @param length
+     * @param dataBytes The byte array
+     * @param position The start position in the byte array
+     * @param length The length of the data
      * @return 
      */
     public byte[] getBits(byte[] dataBytes, int position, int length) {
@@ -218,9 +226,9 @@ public class ByteBitTool
     /**
      * Permutates bits according to given permutation table.
      * 
-     * @param dataBytes
-     * @param table
-     * @return 
+     * @param dataBytes The bytes to be permutated.
+     * @param table The permutation table.
+     * @return Permutated bits.
      */
     public byte[] permutateBits(byte[] dataBytes, int[] table) {
         int numOfBytes = (table.length-1)/8 + 1;
@@ -233,7 +241,7 @@ public class ByteBitTool
      }
 
     /**
-     * Performs an XOR operation on elements of two byte arrays.
+     * Performs an exclusive-OR operation on elements of two byte arrays.
      * 
      * @param a The first byte array
      * @param b The second byte array
@@ -248,11 +256,30 @@ public class ByteBitTool
     }
 
     /**
+     * Splits a byte array into byte blocks of given length
+     * 
+     * @param in The byte array which is to be split
+     * @param length The length of the blocks
+     * @return 
+     */
+    public byte[] splitBytes(byte[] in, int length) {
+        int numOfBytes = (8*in.length-1)/length + 1;
+        byte[] result = new byte[numOfBytes];
+        for (int i=0; i<numOfBytes; i++) {
+            for (int j=0; j<length; j++) {
+                int val = getBit(in, length*i+j); 
+                setBit(result,8*i+j,val);
+            }
+        }
+        return result;
+    }
+
+    /**
      * Performs bit substitution on a byte array according to substitution
      * (S) boxes, thus converting a 6-bit block into a 4-bit block.
      * 
-     * @param in
-     * @return 
+     * @param in The byte array to be substituted
+     * @return The resulting byte array
      */
     public byte[] substituteBits(byte[] in) {
         // Split the byte array into 6-bit blocks
@@ -271,25 +298,6 @@ public class ByteBitTool
                 leftHalfByte = halfByte; // Left half byte
             else
                 result[b/2] = (byte) (16*leftHalfByte + halfByte);
-        }
-        return result;
-    }
-
-    /**
-     * Splits a byte array into byte blocks of given length
-     * 
-     * @param in
-     * @param length
-     * @return 
-     */
-    public byte[] splitBytes(byte[] in, int length) {
-        int numOfBytes = (8*in.length-1)/length + 1;
-        byte[] result = new byte[numOfBytes];
-        for (int i=0; i<numOfBytes; i++) {
-            for (int j=0; j<length; j++) {
-                int val = getBit(in, length*i+j); 
-                setBit(result,8*i+j,val);
-            }
         }
         return result;
     }

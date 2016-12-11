@@ -5,9 +5,8 @@ import javax.crypto.*;
 import java.io.*;
 
 /**
- * A class demonstrating DES algorithm using
- * Java's own cryptography structures.
- *
+ * A class demonstrating DES algorithm using Java's own cryptography structures.
+ * <p>
  * @author Markus J. Auvo 2016
  */
 public class JavaDES
@@ -31,10 +30,8 @@ public class JavaDES
     private final int DECRYPTION_START      =   21;
     private final int DECRYPTION_COMPLETE   =   22;
     
-    private final int READ_PLAIN_IMAGE      =   41;
-    private final int WRITE_ENC_IMAGE       =   42;
-    private final int READ_ENC_IMAGE        =   61;
-    private final int WRITE_DEC_IMAGE       =   62;
+    private final int READ_FROM_FILE        =   41;
+    private final int WRITE_TO_FILE         =   42;
     private final int FAILURE               =   89;
     private final int SUCCESS               =   99;
 
@@ -93,8 +90,8 @@ public class JavaDES
     /**
      * Encrypts a plain image file.
      *
-     * @param inputFile The name of the input file
-     * @param outputFile The name of the output file
+     * @param inputFile The name of the plain input image file
+     * @param outputFile The name of the encrypted output image file
      * @throws java.io.FileNotFoundException
      */
     public void encryptImage(String inputFile, String outputFile) throws FileNotFoundException {
@@ -103,7 +100,8 @@ public class JavaDES
 
         MT.display(ENCRYPTION_START);
         try {
-            MT.display(READ_PLAIN_IMAGE);
+            // Read from file
+            MT.display(READ_FROM_FILE);
             byte[] buffer = new byte[2048];
             int length;
             while ((length = IS.read(buffer)) > 0) {
@@ -111,10 +109,11 @@ public class JavaDES
                 OS.flush();
             }
             MT.display(SUCCESS);
-            MT.display(WRITE_ENC_IMAGE);
-
+            // Write to file
+            MT.display(WRITE_TO_FILE);
             OS.write(ENC_CIPHER.doFinal());
             MT.display(SUCCESS);
+
             IS.close();
             OS.close();
             MT.display(ENCRYPTION_COMPLETE);
@@ -137,7 +136,8 @@ public class JavaDES
 
         MT.display(DECRYPTION_START);
         try {
-            MT.display(READ_ENC_IMAGE);
+            // Read from file
+            MT.display(READ_FROM_FILE);
             byte[] buffer = new byte[2048];
             int length;
             while ((length = IS.read(buffer)) > 0) {
@@ -145,7 +145,8 @@ public class JavaDES
                 OS.flush();
             }
             MT.display(SUCCESS);
-            MT.display(WRITE_DEC_IMAGE);
+            // Write to file
+            MT.display(WRITE_TO_FILE);
             OS.write(DEC_CIPHER.doFinal());
             MT.display(SUCCESS);
             IS.close();

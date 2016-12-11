@@ -4,7 +4,7 @@ import java.io.*;
 
 /**
  * A utility class for handling files.
- *
+ * <p>
  * @author Markus J. Auvo 2016
  */
 public class FileTool
@@ -12,7 +12,7 @@ public class FileTool
     /**
      * Returns a new File instance.
      * 
-     * @param fileName
+     * @param fileName The name of the file
      * @return A File object
      * @throws FileNotFoundException 
      */
@@ -23,7 +23,7 @@ public class FileTool
     /**
      * Returns the file's byte length.
      * 
-     * @param fileName
+     * @param fileName The name of the file
      * @return The integer value of file's byte length
      * @throws java.io.FileNotFoundException 
      */
@@ -34,22 +34,22 @@ public class FileTool
     /**
      * Returns an file input stream.
      * 
-     * @param filename
+     * @param fileName The name of the file
      * @return An InputStream object 
      * @throws java.io.FileNotFoundException 
      */
-    public FileInputStream getInputStream(String filename) throws FileNotFoundException {
-        return new FileInputStream(getFile(filename));
+    public FileInputStream getInputStream(String fileName) throws FileNotFoundException {
+        return new FileInputStream(getFile(fileName));
     }
 
     /**
      * Returns an file output stream.
      * 
-     * @param filename
+     * @param fileName The name of the file
      * @return An InputStream object 
      * @throws java.io.FileNotFoundException 
      */
-    public FileOutputStream getOutputStream(String filename) throws FileNotFoundException {
-        return new FileOutputStream(getFile(filename));
+    public FileOutputStream getOutputStream(String fileName) throws FileNotFoundException {
+        return new FileOutputStream(getFile(fileName));
     }
 }
