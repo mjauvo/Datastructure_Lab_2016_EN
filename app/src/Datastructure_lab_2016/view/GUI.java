@@ -53,17 +53,19 @@ public class GUI extends JFrame
     private final ImageIcon iconInstruction = new ImageIcon("resources/icon_instruction_16x16.png");
     private final ImageIcon iconAbout = new ImageIcon("resources/icon_about_16x16.png");
 
-    private final JFileChooser FILE_CHOOSER;
-    private final FileFilter JPG_FILTER;
-
     // Application area components
 
-    private JLabel fileLabel;   // Displays the name of the selected file
+    private JLabel fileLabel;
     private JLabel methodLabel;
     private JTextField fileName;
     private JComboBox<String> methodName;
     private JButton buttonGo;
     private final ImageIcon iconExecute = new ImageIcon("resources/icon_start_16x16.png");
+
+    // File functionality
+
+    private final JFileChooser FILE_CHOOSER;
+    private final FileFilter JPG_FILTER;
 
     /**
      * Constructor
