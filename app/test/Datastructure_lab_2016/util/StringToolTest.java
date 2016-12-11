@@ -40,37 +40,4 @@ public class StringToolTest
         //getNewString_returnsCorrectNewString("Red velvet", "ed", "ose", "Rust velvet"); // TEST FAILS
         System.out.println("OK");
     }
-
-
-
-
-
-    /**
-     * Test of getEncFileName method, of class StringTool.
-     */
-    public void testGetEncFileName() {
-        System.out.println("getEncFileName");
-        String originalName = "";
-        String method = "";
-        String expResult = "";
-        String result = testInstance.getEncFileName(originalName, method);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getDecFileName method, of class StringTool.
-     */
-    public void testGetDecFileName() {
-        System.out.println("getDecFileName");
-        String originalName = "";
-        String method = "";
-        String expResult = "";
-        String result = testInstance.getDecFileName(originalName, method);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }
