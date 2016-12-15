@@ -143,15 +143,16 @@ public class GUI extends JFrame
      */
     public void showInstructions() {
         String msg = "<html>";
-        msg += "<span style='color: #009600'>";
-        msg += "Instructions";
-        msg += "</span><br>";
-        msg += "<p>Please name your source file according to following convention:<br>";
-        msg += "&lt;<i>name</i>&gt;.ORIGINAL.jpg</p>";
+        msg += "<p>Please name your source files according to following convention:<br>";
+        msg += "<span style='color: #009600'>&lt;<i>name</i>&gt;.ORIGINAL.jpg</span></p>";
         msg += "<br>";
-        msg += "<p>Then select a DES method and execute encryption by pressing GO!";
+        msg += "<p>Select a source file and select a DES method from the dropdown menu.<br>";
+        msg += "Then execute the encryption process by pressing GO!</p>";
+        msg += "<br>";
+        msg += "<p>The encrypted and decrypted file are stored in the same folder<br>";
+        msg += "as the original source file</p>";
         msg += "</html>";
-        showMessageDialog(null, new JLabel(msg), "About", INFORMATION_MESSAGE);
+        showMessageDialog(null, new JLabel(msg), "Instructions", INFORMATION_MESSAGE);
     }
 
     /**
